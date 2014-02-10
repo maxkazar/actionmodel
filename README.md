@@ -1,6 +1,6 @@
 # Actionmodel
 
-[![Build Status](https://travis-ci.org/maxkazar/actionmodel.png?branch=master)](https://travis-ci.org/maxkazar/actionmodel)
+[![Build Status](https://travis-ci.org/maxkazar/actionmodel.png?branch=master)](https://travis-ci.org/maxkazar/actionmodel) [![Coverage Status](https://coveralls.io/repos/maxkazar/actionmodel/badge.png)](https://coveralls.io/r/maxkazar/actionmodel) [![Code Climate](https://codeclimate.com/repos/52f8ba86e30ba04a62003cdb/badges/84d12fb736e9a2d3331b/gpa.png)](https://codeclimate.com/repos/52f8ba86e30ba04a62003cdb/feed)
 
 ## Installation
 
