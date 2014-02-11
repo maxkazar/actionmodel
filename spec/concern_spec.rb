@@ -8,6 +8,12 @@ describe ActionModel::Concern do
     model.public_class_method :include_action, :find_or_create_action, :action_module
   end
 
+  describe '#actions' do
+    it 'return class actions' do
+      expect(model.new.actions).to eq model.actions
+    end
+  end
+
   describe '.act_as' do
     it 'include action' do
       expect(model).to receive(:include_action).with :searchable, {}
@@ -17,6 +23,22 @@ describe ActionModel::Concern do
     it 'include action with options' do
       expect(model).to receive(:include_action).with :searchable, { ignorecase: true }
       model.act_as :searchable, ignorecase: true
+    end
+  end
+
+  describe '.method_missing' do
+    context 'without action method' do
+      it 'call class method' do
+        expect(model.superclass).to receive(:some_method)
+        model.some_method
+      end
+    end
+
+    context 'with action method' do
+      it 'config action' do
+        expect(model).to receive(:include_action).with 'searchable', :name, ignorecase: true
+        model.act_as_searchable :name, ignorecase: true
+      end
     end
   end
 
@@ -83,22 +105,6 @@ describe ActionModel::Concern do
       subject { model.action_module(:unknownable) }
 
       it { should be_nil }
-    end
-  end
-
-  describe '.method_missing' do
-    context 'without action method' do
-      it 'call class method' do
-        expect(model).to receive(:class_method)
-        model.class_method
-      end
-    end
-
-    context 'with action method' do
-      it 'config action' do
-        expect(model).to receive(:include_action).with 'searchable', :name, ignorecase: true
-        model.act_as_searchable :name, ignorecase: true
-      end
     end
   end
 end
