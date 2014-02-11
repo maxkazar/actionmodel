@@ -29,8 +29,7 @@ describe ActionModel::Concern do
   describe '.method_missing' do
     context 'without action method' do
       it 'call class method' do
-        expect(model.superclass).to receive(:some_method)
-        model.some_method
+        expect { model.some_method }.to raise_error
       end
     end
 
