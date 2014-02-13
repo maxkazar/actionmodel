@@ -14,15 +14,15 @@ describe ActionModel::Concern do
     end
   end
 
-  describe '.act_as' do
+  describe '.acts_as' do
     it 'include action' do
       expect(model).to receive(:include_action).with :searchable, {}
-      model.act_as :searchable
+      model.acts_as :searchable
     end
 
     it 'include action with options' do
       expect(model).to receive(:include_action).with :searchable, { ignorecase: true }
-      model.act_as :searchable, ignorecase: true
+      model.acts_as :searchable, ignorecase: true
     end
   end
 
@@ -36,7 +36,7 @@ describe ActionModel::Concern do
     context 'with action method' do
       it 'config action' do
         expect(model).to receive(:include_action).with 'searchable', :name, ignorecase: true
-        model.act_as_searchable :name, ignorecase: true
+        model.acts_as_searchable :name, ignorecase: true
       end
     end
   end

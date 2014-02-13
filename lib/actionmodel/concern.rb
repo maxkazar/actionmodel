@@ -20,24 +20,24 @@ module ActionModel
       # Add single action to model
       #
       #   class Post
-      #     act_as :searchable
+      #     acts_as :searchable
       #     ...
       #   end
       #
       # Add actions to model
       #
       #   class Post
-      #     act_as :searchable, :viewable
+      #     acts_as :searchable, :viewable
       #     ...
       #   end
       #
       # Actions can be added with options. Options applied for each action
       #
       #   class Post
-      #     act_as :searchable, ignorecase: true
+      #     acts_as :searchable, ignorecase: true
       #     ...
       #   end
-      def act_as(*args)
+      def acts_as(*args)
         options = args.extract_options!
 
         args.each { |action_name| include_action action_name, options }
@@ -53,11 +53,11 @@ module ActionModel
       #
       # @example Add historyable action
       #   class Rank
-      #     act_as_historyable :value, :boost, autofill: true
+      #     acts_as_historyable :value, :boost, autofill: true
       #     ...
       #   end
       def method_missing(method, *args, &block)
-        action = method[/^act_as_(.+)/, 1]
+        action = method[/^acts_as_(.+)/, 1]
         if action.nil?
           super method, *args, &block
         else
