@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['maxkazargm@gmail.com']
   spec.summary       = %q{Model actions extender.}
   spec.description   = %q{ActionModel helps to structure model logic with actions.}
-  spec.homepage      = ''
+  spec.homepage      = 'http://github.com/maxkazar/actionmodel'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
