@@ -41,6 +41,8 @@ can be split into pretty `Post` model and actions: `searchable`, `pageable`, `ta
 
 ```ruby
 class Post
+  include ActionModel::Concern
+
   acts_as_searchable :title, ignorecase: true
   acts_as :pageable, :tagable
 end
